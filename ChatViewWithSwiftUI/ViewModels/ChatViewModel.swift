@@ -53,28 +53,19 @@ class ChatViewModel: ObservableObject {
     
     func getTitle(messages: [Message]) -> String {
         var title = ""
-        var userIds: [String] = []
+        let names = getMembers(messages: messages, type: .name)
         
-        for message in messages {
-            let id = message.user.id
-            
-            // 自分の名前は除外
-            if id == User.currentUser.id { continue } // tureであれば、{ continue } で次のfor文の次の処理を実行
-            if userIds.contains(id) { continue } //tureであれば、{ continue } で次のfor文の次の処理を実行
-            
-            userIds.append(id)
-            
-            let name = message.user.name
+        for name in names {
             title += title.isEmpty ? "\(name)" : ", \(name)"
-            
-            print(title)
         }
         
         return title
     }
     
-    func getImages(messages: [Message]) -> [String] {
-        var images: [String] = []
+    func getImages(messages: [Message]) -> [String] { getMembers(messages: messages, type: .image)}
+    
+    func getMembers(messages: [Message], type: ValueType) -> [String] {
+        var members: [String] = []
         var userIds: [String] = []
         
         for message in messages {
@@ -86,10 +77,19 @@ class ChatViewModel: ObservableObject {
             
             userIds.append(id)
             
-            let image = message.user.image
-            images.append(image)
+            switch type {
+            case .name:
+                members.append(message.user.name)
+            case .image:
+                members.append(message.user.image)
+            }
         }
         
-        return images
+        return members
     }
+}
+
+enum ValueType {
+    case name
+    case image
 }
