@@ -10,24 +10,44 @@ import SwiftUI
 struct MessageRow: View {
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: "person.circle")
-                .resizable() // frameを設定する前に、resizable()でresize可能にさせる
-                .frame(width: 48, height: 48)
-            Text("こんにちは！")
-                .padding()
-                .background(.white)
-                .cornerRadius(30)
-            VStack(alignment: .trailing) {
-                Spacer()
-                Text("既読")
-                Text(formattedDataString)
-            }
-            .foregroundColor(.secondary)
-            .font(.footnote)
-            
+            userThumb
+            messageText
+            messageState
             Spacer()
+           
         }
         .padding(.bottom)
+    }
+}
+
+#Preview {
+    MessageRow()
+        .background(.cyan)
+}
+
+extension MessageRow {
+    
+    private var userThumb: some View {
+        Image(systemName: "person.circle")
+            .resizable() // frameを設定する前に、resizable()でresize可能にさせる
+            .frame(width: 48, height: 48)
+    }
+    
+    private var messageText: some View {
+        Text("こんにちは！")
+            .padding()
+            .background(.white)
+            .cornerRadius(30)
+    }
+    
+    private var messageState: some View {
+        VStack(alignment: .trailing) {
+            Spacer()
+            Text("既読")
+            Text(formattedDataString)
+        }
+        .foregroundColor(.secondary)
+        .font(.footnote)
     }
     
     private var formattedDataString: String {
@@ -35,9 +55,4 @@ struct MessageRow: View {
         formatter.timeStyle = .short
         return formatter.string(from: Date())
     }
-}
-
-#Preview {
-    MessageRow()
-        .background(.cyan)
 }
