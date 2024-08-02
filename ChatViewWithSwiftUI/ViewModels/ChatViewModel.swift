@@ -57,11 +57,12 @@ class ChatViewModel: ObservableObject {
         
         for message in messages {
             let id = message.user.id
-            userIds.append(id)
             
             // 自分の名前は除外
             if id == User.currentUser.id { continue } // tureであれば、{ continue } で次のfor文の次の処理を実行
             if userIds.contains(id) { continue } //tureであれば、{ continue } で次のfor文の次の処理を実行
+            
+            userIds.append(id)
             
             let name = message.user.name
             title += title.isEmpty ? "\(name)" : ", \(name)"
@@ -70,5 +71,25 @@ class ChatViewModel: ObservableObject {
         }
         
         return title
+    }
+    
+    func getImages(messages: [Message]) -> [String] {
+        var images: [String] = []
+        var userIds: [String] = []
+        
+        for message in messages {
+            let id = message.user.id
+            
+            // 自分の名前は除外
+            if id == User.currentUser.id { continue } // tureであれば、{ continue } で次のfor文の次の処理を実行
+            if userIds.contains(id) { continue } //tureであれば、{ continue } で次のfor文の次の処理を実行
+            
+            userIds.append(id)
+            
+            let image = message.user.image
+            images.append(image)
+        }
+        
+        return images
     }
 }

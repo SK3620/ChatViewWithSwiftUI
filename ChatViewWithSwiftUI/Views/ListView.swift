@@ -66,10 +66,22 @@ extension ListView {
     
     private func listRow(chat: Chat) -> some View {
         HStack {
-            Image(systemName: "person.circle")
-                .resizable()
-                .frame(width: 48, height: 48)
-                .clipShape(Circle())
+            
+            let images = vm.getImages(messages: chat.messages)
+            
+            HStack(spacing: -28) {
+                ForEach(images, id: \.self){ image in
+                    Image(systemName: image)
+                        .resizable()
+                        .frame(width: 48, height: 48)
+                        .clipShape(Circle())
+                        .background(
+                            Circle()
+                                .foregroundColor(Color(uiColor: .systemBackground))
+                                .frame(width: 54, height: 54)
+                        )
+                }
+            }
             VStack(alignment: .leading) {
                 Text(vm.getTitle(messages: chat.messages))
                     .lineLimit(1)
