@@ -44,7 +44,11 @@ class ChatViewModel: ObservableObject {
             chat.id == chatId
         }) else { return }
         
-        let newMessage = Message(id: UUID().uuidString, text: text, user: User.currentUser, date: Date().description, readed: false)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDateString = formatter.string(from: Date())
+        
+        let newMessage = Message(id: UUID().uuidString, text: text, user: User.currentUser, date: formattedDateString, readed: false)
         
         // chatDataに新しいメッセージデータを追加しているのため、chatDataに"@Published"を追記し、変更を通知する
         chatData[index].messages.append(newMessage)
