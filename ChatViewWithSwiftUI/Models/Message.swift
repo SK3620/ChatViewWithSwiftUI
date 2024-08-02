@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Message {
+struct Message: Decodable {
     let id: String
     let text: String
     let user: User

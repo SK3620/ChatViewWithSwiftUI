@@ -9,4 +9,22 @@ import Foundation
 
 class ChatViewModel {
     
+    private func fetchData() -> [Chat] {
+        let fileName = "chatData.json"
+        var data: Data
+        
+        guard let filePath = Bundle.main.url(forResource: fileName, withExtension: nil) else { fatalError("\(fileName)が見つかりませんでした")}
+        do {
+            data = try Data(contentsOf: filePath)
+        } catch {
+            fatalError("\(fileName)のロードに失敗しました")
+        }
+        
+        do {
+            // 変換後のデータをChat型の要素を持つ配列を受け取りたい
+           return try JSONDecoder().decode([Chat].self, from: data)
+        } catch {
+            fatalError("\(fileName)を\(Chat.self)に変換できませんでした")
+        }
+    }
 }
