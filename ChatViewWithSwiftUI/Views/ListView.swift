@@ -78,7 +78,7 @@ extension ListView {
                     .foregroundColor(Color(uiColor: .secondaryLabel))
             }
             Spacer()
-            Text("12/31")
+            Text(chat.recentMessageDateString)
                 .font(.caption)
                 .foregroundColor(Color(uiColor: .secondaryLabel))
         }
