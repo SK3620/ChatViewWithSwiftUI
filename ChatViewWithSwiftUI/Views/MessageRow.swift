@@ -14,7 +14,6 @@ struct MessageRow: View {
             messageText
             messageState
             Spacer()
-           
         }
         .padding(.bottom)
     }
