@@ -33,14 +33,13 @@ extension ListView {
             
             Spacer()
             
-            HStack {
-                Circle()
-                    .frame(width: 40, height: 40)
-                Circle()
-                    .frame(width: 40, height: 40)
-                Circle()
-                    .frame(width: 40, height: 40)
+            HStack(spacing: 16) {
+                Image(systemName: "text.badge.checkmark")
+                Image(systemName: "square")
+                Image(systemName: "ellipsis.bubble")
+
             }
+            .font(.title2)
         }
     }
     
@@ -56,8 +55,10 @@ extension ListView {
     
     private var listRow: some View {
         HStack {
-            Circle()
-                .frame(width: 60, height: 60)
+            Image(systemName: "person.circle")
+                .resizable()
+                .frame(width: 48, height: 48)
+                .clipShape(Circle())
             VStack(alignment: .leading) {
                 Text("タイトル")
                 Text("最新のメッセージ")
