@@ -56,14 +56,14 @@ extension ListView {
                         ChatView(chat: chat)
                             .toolbar(.hidden)
                     } label: {
-                        listRow
+                        listRow(chat: chat)
                     }
                 }
             }
         }
     }
     
-    private var listRow: some View {
+    private func listRow(chat: Chat) -> some View {
         HStack {
             Image(systemName: "person.circle")
                 .resizable()
@@ -72,8 +72,9 @@ extension ListView {
             VStack(alignment: .leading) {
                 Text("タイトル")
                     .foregroundColor(Color(uiColor: .secondaryLabel))
-                Text("最新のメッセージ")
+                Text(chat.recnetMessageText)
                     .font(.footnote)
+                    .lineLimit(1)
                     .foregroundColor(Color(uiColor: .secondaryLabel))
             }
             Spacer()
