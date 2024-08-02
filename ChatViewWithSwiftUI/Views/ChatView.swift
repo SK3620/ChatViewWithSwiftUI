@@ -13,6 +13,8 @@ struct ChatView: View {
     // これが変更されることで、Viewも自動で更新される
     @State private var textFieldText: String = ""
     
+    private var vm: ChatViewModel = ChatViewModel()
+    
     var body: some View {
         VStack(spacing: 0) {
             // Message Area
@@ -37,8 +39,10 @@ extension ChatView {
     private var messageArea: some View {
         return ScrollView {
             VStack(spacing: 0) {
-                ForEach(0..<15){ _ in
-                    MessageRow()
+                // \.id メモリへの参照を行う
+                // または、Messsageクラスに、Identifiableを準拠させることで、Messageのインスタンスが値がユニークになるメンバーを持っていることを保証する よって、id: Stringの定義が必須。→ \.idが不要になる
+                ForEach(vm.messages, id: \.id){ message in
+                    MessageRow(message: message)
                 }
             }
             .padding(.horizontal)

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MessageRow: View {
+    
+    let message: Message
+    
     var body: some View {
         HStack(alignment: .top) {
             userThumb
@@ -19,21 +22,21 @@ struct MessageRow: View {
     }
 }
 
-#Preview {
-    MessageRow()
-        .background(.cyan)
-}
+//#Preview {
+//    MessageRow()
+//        .background(.cyan)
+//}
 
 extension MessageRow {
     
     private var userThumb: some View {
-        Image(systemName: "person.circle")
+        Image(systemName: message.user.image)
             .resizable() // frameを設定する前に、resizable()でresize可能にさせる
             .frame(width: 48, height: 48)
     }
     
     private var messageText: some View {
-        Text("こんにちは！")
+        Text(message.text)
             .padding()
             .background(.white)
             .cornerRadius(30)

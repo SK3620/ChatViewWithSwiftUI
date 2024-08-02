@@ -9,6 +9,14 @@ import Foundation
 
 class ChatViewModel {
     
+    var chatData: [Chat] = []
+    var messages: [Message] = []
+    
+    init() {
+        chatData = fetchData()
+        messages = chatData[0].massages
+    }
+    
     private func fetchData() -> [Chat] {
         let fileName = "chatData.json"
         var data: Data
@@ -16,6 +24,7 @@ class ChatViewModel {
         guard let filePath = Bundle.main.url(forResource: fileName, withExtension: nil) else { fatalError("\(fileName)が見つかりませんでした")}
         do {
             data = try Data(contentsOf: filePath)
+            print(data)
         } catch {
             fatalError("\(fileName)のロードに失敗しました")
         }
