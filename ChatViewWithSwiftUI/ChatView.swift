@@ -11,62 +11,75 @@ struct ChatView: View {
     var body: some View {
         VStack(spacing: 0) {
             // Message Area
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(0..<15){ _ in
-                        HStack {
-                            Circle()
-                                .frame(width: 60, height: 60)
-                            Capsule()
-                                .frame(height: 60)
-                        }
-                    }
-                    .padding(.bottom)
-                }
-                .padding(.horizontal)
-                .padding(.top, 72)
-            }
-            .background(.cyan)
-            .overlay(
-                // Navigation Area
-                HStack {
-                    Circle()
-                        .frame(width: 40, height: 40)
-                    Text("Title")
-                    Spacer()
-                    Circle()
-                        .frame(width: 40, height: 40)
-                    Circle()
-                        .frame(width: 40, height: 40)
-                    Circle()
-                        .frame(width: 40, height: 40)
-                }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(.black.opacity(0.5))
-                
-                , alignment: .top
-            )
+            messageArea
             
+            // Navigation Area
+            .overlay(navigationArea, alignment: .top)
+        
             // Input Area
-            HStack {
-                Circle()
-                    .frame(width: 40, height: 40)
-                Circle()
-                    .frame(width: 40, height: 40)
-                Circle()
-                    .frame(width: 40, height: 40)
-                Capsule()
-                    .frame(height: 40)
-                Circle()
-                    .frame(width: 40, height: 40)
-            }
-            .background(.white)
-            .padding()
+            inputArera
         }
     }
 }
 
 #Preview {
     ChatView()
+}
+
+extension ChatView {
+    
+    // some → 型を抽象化するためのキーワード
+    private var messageArea: some View {
+        return ScrollView {
+            VStack(spacing: 0) {
+                ForEach(0..<15){ _ in
+                    HStack {
+                        Circle()
+                            .frame(width: 60, height: 60)
+                        Capsule()
+                            .frame(height: 60)
+                    }
+                }
+                .padding(.bottom)
+            }
+            .padding(.horizontal)
+            .padding(.top, 72)
+        }
+        .background(.cyan)
+    }
+    
+    private var inputArera: some View {
+        return  HStack {
+            Circle()
+                .frame(width: 40, height: 40)
+            Circle()
+                .frame(width: 40, height: 40)
+            Circle()
+                .frame(width: 40, height: 40)
+            Capsule()
+                .frame(height: 40)
+            Circle()
+                .frame(width: 40, height: 40)
+        }
+        .background(.white)
+        .padding()
+    }
+    
+    private var navigationArea: some View {
+        return   HStack {
+            Circle()
+                .frame(width: 40, height: 40)
+            Text("Title")
+            Spacer()
+            Circle()
+                .frame(width: 40, height: 40)
+            Circle()
+                .frame(width: 40, height: 40)
+            Circle()
+                .frame(width: 40, height: 40)
+        }
+            .foregroundColor(.white)
+            .padding()
+            .background(.black.opacity(0.5))
+    }
 }
