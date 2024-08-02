@@ -41,7 +41,7 @@ extension ChatView {
             VStack(spacing: 0) {
                 // \.id メモリへの参照を行う
                 // または、Messsageクラスに、Identifiableを準拠させることで、Messageのインスタンスが値がユニークになるメンバーを持っていることを保証する よって、id: Stringの定義が必須。→ \.idが不要になる
-                ForEach(vm.messages, id: \.id){ message in
+                ForEach(vm.messages, id: \.id){ message in  
                     MessageRow(message: message)
                 }
             }
