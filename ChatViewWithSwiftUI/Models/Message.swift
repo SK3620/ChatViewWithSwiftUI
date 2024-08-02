@@ -8,9 +8,9 @@
 import Foundation
 
 struct Message {
-    let id: String = UUID().uuidString // 初期値 自動的にidを生成
+    let id: String
     let text: String
     let user: User
-    let date: Date
+    let date: String
     let readed: Bool
 }
