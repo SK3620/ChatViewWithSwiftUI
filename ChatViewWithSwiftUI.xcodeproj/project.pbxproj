@@ -11,6 +11,7 @@
 		83CB186E2C5C829800944EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CB186D2C5C829800944EB3 /* Assets.xcassets */; };
 		83CB18712C5C829800944EB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CB18702C5C829800944EB3 /* Preview Assets.xcassets */; };
 		83CB18782C5C845B00944EB3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CB18772C5C845B00944EB3 /* ChatView.swift */; };
+		83CB187A2C5C8E3200944EB3 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CB18792C5C8E3200944EB3 /* MessageRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		83CB186D2C5C829800944EB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83CB18702C5C829800944EB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		83CB18772C5C845B00944EB3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		83CB18792C5C8E3200944EB3 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				83CB18692C5C829400944EB3 /* ChatViewWithSwiftUIApp.swift */,
-				83CB18772C5C845B00944EB3 /* ChatView.swift */,
+				83CB187B2C5C8E5D00944EB3 /* Views */,
 				83CB186D2C5C829800944EB3 /* Assets.xcassets */,
 				83CB186F2C5C829800944EB3 /* Preview Content */,
 			);
@@ -65,6 +67,15 @@
 				83CB18702C5C829800944EB3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		83CB187B2C5C8E5D00944EB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83CB18792C5C8E3200944EB3 /* MessageRow.swift */,
+				83CB18772C5C845B00944EB3 /* ChatView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				83CB18782C5C845B00944EB3 /* ChatView.swift in Sources */,
 				83CB186A2C5C829400944EB3 /* ChatViewWithSwiftUIApp.swift in Sources */,
+				83CB187A2C5C8E3200944EB3 /* MessageRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
