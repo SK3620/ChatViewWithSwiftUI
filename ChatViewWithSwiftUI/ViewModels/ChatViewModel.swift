@@ -50,4 +50,25 @@ class ChatViewModel: ObservableObject {
         // chatDataに新しいメッセージデータを追加しているのため、chatDataに"@Published"を追記し、変更を通知する
         chatData[index].messages.append(newMessage)
     }
+    
+    func getTitle(messages: [Message]) -> String {
+        var title = ""
+        var userIds: [String] = []
+        
+        for message in messages {
+            let id = message.user.id
+            userIds.append(id)
+            
+            // 自分の名前は除外
+            if id == User.currentUser.id { continue } // tureであれば、{ continue } で次のfor文の次の処理を実行
+            if userIds.contains(id) { continue } //tureであれば、{ continue } で次のfor文の次の処理を実行
+            
+            let name = message.user.name
+            title += title.isEmpty ? "\(name)" : ", \(name)"
+            
+            print(title)
+        }
+        
+        return title
+    }
 }
