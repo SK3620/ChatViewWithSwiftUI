@@ -9,14 +9,11 @@ import Foundation
 
 class ChatViewModel: ObservableObject {
     
+    // ChatViewModelのchatDataプロパティに変更があったら、その都度通知を送る
     @Published var chatData: [Chat] = []
-    
-    // ChatViewModelのmessagesプロパティに変更があったら、その都度通知を送る
-    @Published var messages: [Message] = []
-    
+        
     init() {
         chatData = fetchData()
-        messages = chatData[0].messages
     }
     
     private func fetchData() -> [Chat] {

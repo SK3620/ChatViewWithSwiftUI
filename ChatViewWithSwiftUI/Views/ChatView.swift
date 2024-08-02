@@ -145,7 +145,7 @@ extension ChatView {
     }
     
     private func scrollToLast(proxy: ScrollViewProxy) {
-        if let lastMessage = vm.messages.last {
+        if let lastMessage = chat.messages.last {
             proxy.scrollTo(lastMessage.id, anchor: .bottom) // ユニークになる必要がある
         } // 配列の最後のメッセージ
     }
