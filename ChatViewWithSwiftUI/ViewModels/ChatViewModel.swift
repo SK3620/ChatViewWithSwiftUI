@@ -37,7 +37,7 @@ class ChatViewModel {
         }
     }
     
-    func addMessage(){
-        
+    func addMessage(text: String){
+        let newMessage = Message(id: UUID().uuidString, text: text, user: User.currentUser, date: Date().description, readed: false)
     }
 }

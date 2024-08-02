@@ -75,7 +75,7 @@ extension ChatView {
                     , alignment: .trailing
                 )
                 .onSubmit {
-                    sendMessage()
+                    sendMessage(text: textFieldText)
                 }
             Image(systemName: "mic")
                 .font(.title2)
@@ -103,7 +103,7 @@ extension ChatView {
             .background(Color("Background").opacity(0.9))
     }
     
-    private func sendMessage(){
-        vm.addMessage()
+    private func sendMessage(text: String){
+        vm.addMessage(text: text)
     }
 }
