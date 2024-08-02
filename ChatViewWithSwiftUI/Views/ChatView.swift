@@ -13,6 +13,10 @@ struct ChatView: View {
     // これが変更されることで、Viewも自動で更新される
     @State private var textFieldText: String = ""
     
+    // フォーカス状態を、監視したい要素に関連づけることが可能
+    // 今回は、textField
+    @FocusState private var textFieldFocused: Bool
+    
     // これはあくまでもコピーではなく、ChatViewModelクラスのことを参照している
     // そのため、ChatViewModelのmessagesプロパティに変更を加えていけば、それを参照するChatViewクラスの画面も変更される
     // それに必要なのが、ObservedWrapperというPropertyWrapper
@@ -57,6 +61,9 @@ extension ChatView {
             .padding(.top, 72)
         }
         .background(Color("Background"))
+        .onTapGesture {
+            textFieldFocused = false
+        }
     }
     
     private var inputArera: some View {
@@ -83,8 +90,9 @@ extension ChatView {
                     , alignment: .trailing
                 )
                 .onSubmit {
-                    sendMessage(text: textFieldText)
+                    sendMessage()
                 }
+                .focused($textFieldFocused) // 参照を渡す
             Image(systemName: "mic")
                 .font(.title2)
         }
@@ -111,7 +119,9 @@ extension ChatView {
             .background(Color("Background").opacity(0.9))
     }
     
-    private func sendMessage(text: String){
-        vm.addMessage(text: text)
+    private func sendMessage(){
+        guard textFieldText != "" else { return }
+        vm.addMessage(text: textFieldText)
+        textFieldText = "" // 空文字入れて、Viewが再描画される
     }
 }
