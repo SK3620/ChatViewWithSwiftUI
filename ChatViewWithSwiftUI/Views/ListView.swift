@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    @ObservedObject var vm: ChatViewModel = ChatViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -48,9 +51,9 @@ extension ListView {
     private var list: some View {
         ScrollView {
             VStack {
-                ForEach(0..<5) {_ in
+                ForEach(vm.chatData) { chat in
                     NavigationLink {
-                        ChatView()
+                        ChatView(chat: chat)
                             .toolbar(.hidden)
                     } label: {
                         listRow

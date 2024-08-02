@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChatView: View {
     
+    let chat: Chat
+    
     // プロパティの値とViewの表示を同期するためのキーワード
     // これが変更されることで、Viewも自動で更新される
     @State private var textFieldText: String = ""
@@ -44,9 +46,9 @@ struct ChatView: View {
     }
 }
 
-#Preview {
-    ChatView()
-}
+//#Preview {
+//    ChatView()
+//}
 
 extension ChatView {
     
@@ -57,7 +59,7 @@ extension ChatView {
                 VStack(spacing: 0) {
                     // \.id メモリへの参照を行う
                     // または、Messsageクラスに、Identifiableを準拠させることで、Messageのインスタンスが値がユニークになるメンバーを持っていることを保証する よって、id: Stringの定義が必須。→ \.idが不要になる
-                    ForEach(vm.messages, id: \.id){ message in
+                    ForEach(chat.messages, id: \.id){ message in
                         MessageRow(message: message)
                     }
                 }
