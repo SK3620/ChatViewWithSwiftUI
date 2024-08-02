@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ChatView: View {
+    
+    // プロパティの値とViewの表示を同期するためのキーワード
+    // これが変更されることで、Viewも自動で更新される
+    @State private var textFieldText: String = ""
+    
     var body: some View {
         VStack(spacing: 0) {
             // Message Area
@@ -44,16 +49,29 @@ extension ChatView {
     
     private var inputArera: some View {
         return HStack {
-            Circle()
-                .frame(width: 40, height: 40)
-            Circle()
-                .frame(width: 40, height: 40)
-            Circle()
-                .frame(width: 40, height: 40)
-            Capsule()
-                .frame(height: 40)
-            Circle()
-                .frame(width: 40, height: 40)
+            HStack {
+                Image(systemName: "plus")
+                Image(systemName: "camera")
+                Image(systemName: "photo")
+            }
+            .font(.title2)
+            
+            // テキストフィールドに入力された値を格納するためのプロパティを作成する
+            // $をつけて、参照する（プロパティの値ではなく、プロパティの参照を渡す）
+            TextField("Aa", text: $textFieldText)
+                .padding()
+                .background(Color(uiColor: .secondarySystemBackground))
+                .clipShape(Capsule()) // 枠線を丸くする
+                .overlay(
+                    Image(systemName: "face.smiling")
+                        .font(.title2)
+                        .padding(.trailing)
+                        .foregroundColor(.gray)
+                    
+                    , alignment: .trailing
+                )
+            Image(systemName: "mic")
+                .font(.title2)
         }
         .background(.white)
         .padding()
