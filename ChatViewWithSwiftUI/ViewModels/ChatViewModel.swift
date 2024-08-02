@@ -36,4 +36,8 @@ class ChatViewModel {
             fatalError("\(fileName)を\(Chat.self)に変換できませんでした")
         }
     }
+    
+    func addMessage(){
+        
+    }
 }
