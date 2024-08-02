@@ -9,7 +9,8 @@ import Foundation
 
 class ChatViewModel: ObservableObject {
     
-    var chatData: [Chat] = []
+    @Published var chatData: [Chat] = []
+    
     // ChatViewModelのmessagesプロパティに変更があったら、その都度通知を送る
     @Published var messages: [Message] = []
     
@@ -38,8 +39,14 @@ class ChatViewModel: ObservableObject {
         }
     }
     
-    func addMessage(text: String){
+    func addMessage(chatId: String, text: String){
+        guard let index = chatData.firstIndex(where: { chat in
+            chat.id == chatId
+        }) else { return }
+        
         let newMessage = Message(id: UUID().uuidString, text: text, user: User.currentUser, date: Date().description, readed: false)
-        messages.append(newMessage)
+        
+        // chatDataに新しいメッセージデータを追加しているのため、chatDataに"@Published"を追記し、変更を通知する
+        chatData[index].messages.append(newMessage)
     }
 }

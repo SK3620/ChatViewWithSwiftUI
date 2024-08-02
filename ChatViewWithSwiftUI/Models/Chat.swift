@@ -9,7 +9,7 @@ import Foundation
 
 struct Chat: Decodable, Identifiable {
     let id: String
-    let messages: [Message]
+    var messages: [Message]
     
     var recnetMessageText: String {
         guard let recentMessage = self.messages.last else { return "" }

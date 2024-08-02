@@ -30,7 +30,9 @@ struct ChatView: View {
     // しかし、これは監視対象のオブジェクトから、何らかの通知があったあ際に自身のViewを再描画するだけの役割
     // ChatViewModelのmessagesに"@Published"を追記
     // messagesが変更 → ChatViewModelを監視するChatViewがその変更通知を受け取る → 自身のViewを再描画
-    @ObservedObject var vm: ChatViewModel = ChatViewModel()
+    // @ObservedObject var vm: ChatViewModel = ChatViewModel()
+    
+    @EnvironmentObject var vm: ChatViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -138,7 +140,7 @@ extension ChatView {
     
     private func sendMessage(){
         guard textFieldText != "" else { return }
-        vm.addMessage(text: textFieldText)
+        vm.addMessage(chatId: chat.id, text: textFieldText)
         textFieldText = "" // 空文字入れて、Viewが再描画される
     }
     
