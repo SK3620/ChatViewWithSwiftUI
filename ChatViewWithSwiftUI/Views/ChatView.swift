@@ -17,6 +17,9 @@ struct ChatView: View {
     // 今回は、textField
     @FocusState private var textFieldFocused: Bool
     
+    // Enviromentというproperty wrapperにdismissという環境変数を設定することで、画面を閉じるためのハンドラーを取得
+    @Environment(\.dismiss) private var dismiss
+    
     // これはあくまでもコピーではなく、ChatViewModelクラスのことを参照している
     // そのため、ChatViewModelのmessagesプロパティに変更を加えていけば、それを参照するChatViewクラスの画面も変更される
     // それに必要なのが、ObservedWrapperというPropertyWrapper
@@ -109,8 +112,14 @@ extension ChatView {
     
     private var navigationArea: some View {
         return HStack {
-            Image(systemName: "chevron.backward")
-                .font(.title2)
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.backward")
+                    .font(.title2)
+                    .foregroundColor(.primary)
+            }
+            
             Text("Title")
                 .font(.title2.bold())
             Spacer()
