@@ -7,10 +7,11 @@
 
 import Foundation
 
-class ChatViewModel {
+class ChatViewModel: ObservableObject {
     
     var chatData: [Chat] = []
-    var messages: [Message] = []
+    // ChatViewModelのmessagesプロパティに変更があったら、その都度通知を送る
+    @Published var messages: [Message] = []
     
     init() {
         chatData = fetchData()
@@ -39,5 +40,6 @@ class ChatViewModel {
     
     func addMessage(text: String){
         let newMessage = Message(id: UUID().uuidString, text: text, user: User.currentUser, date: Date().description, readed: false)
+        messages.append(newMessage)
     }
 }

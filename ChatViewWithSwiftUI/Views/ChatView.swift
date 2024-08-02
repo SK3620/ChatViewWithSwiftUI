@@ -13,7 +13,15 @@ struct ChatView: View {
     // これが変更されることで、Viewも自動で更新される
     @State private var textFieldText: String = ""
     
-    private var vm: ChatViewModel = ChatViewModel()
+    // これはあくまでもコピーではなく、ChatViewModelクラスのことを参照している
+    // そのため、ChatViewModelのmessagesプロパティに変更を加えていけば、それを参照するChatViewクラスの画面も変更される
+    // それに必要なのが、ObservedWrapperというPropertyWrapper
+    // → 参照元のクラスを監視して、通知（変更等）があった場合、自身のクラスを再描画させることができる
+    // その参照元のクラスは、ObservableObjectプロトコルに準拠しなきゃダメ
+    // しかし、これは監視対象のオブジェクトから、何らかの通知があったあ際に自身のViewを再描画するだけの役割
+    // ChatViewModelのmessagesに"@Published"を追記
+    // messagesが変更 → ChatViewModelを監視するChatViewがその変更通知を受け取る → 自身のViewを再描画
+    @ObservedObject var vm: ChatViewModel = ChatViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
