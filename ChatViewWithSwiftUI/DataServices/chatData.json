@@ -8,7 +8,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 07:00:00",
                 "readed": true
@@ -19,7 +19,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 07:20:00",
                 "readed": true
@@ -30,7 +30,7 @@
                 "user": {
                     "id": "3",
                     "name": "パープル",
-                    "image": "user03"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 09:24:26",
                 "readed": false
@@ -41,7 +41,7 @@
                 "user": {
                     "id": "4",
                     "name": "グリーン",
-                    "image": "user04"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 09:55:30",
                 "readed": false
@@ -52,7 +52,7 @@
                 "user": {
                     "id": "5",
                     "name": "イエロー",
-                    "image": "user05"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:00:00",
                 "readed": false
@@ -63,7 +63,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:01:00",
                 "readed": true
@@ -74,7 +74,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:02:00",
                 "readed": true
@@ -85,7 +85,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:03:00",
                 "readed": false
@@ -96,7 +96,7 @@
                 "user": {
                     "id": "3",
                     "name": "パープル",
-                    "image": "user03"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:06:00",
                 "readed": false
@@ -107,7 +107,7 @@
                 "user": {
                     "id": "4",
                     "name": "グリーン",
-                    "image": "user04"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 10:07:00",
                 "readed": false
@@ -118,7 +118,7 @@
                 "user": {
                     "id": "5",
                     "name": "イエロー",
-                    "image": "user05"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 11:54:00",
                 "readed": false
@@ -129,7 +129,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 12:00:00",
                 "readed": false
@@ -140,7 +140,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-01-30 12:03:00",
                 "readed": false
@@ -156,7 +156,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:00:00",
                 "readed": true
@@ -167,7 +167,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:01:00",
                 "readed": true
@@ -178,7 +178,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:03:00",
                 "readed": true
@@ -189,7 +189,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:01:00",
                 "readed": true
@@ -200,7 +200,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:05:00",
                 "readed": true
@@ -211,7 +211,7 @@
                 "user": {
                     "id": "2",
                     "name": "ブルー",
-                    "image": "user02"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 20:06:00",
                 "readed": true
@@ -227,7 +227,7 @@
                 "user": {
                     "id": "3",
                     "name": "パープル",
-                    "image": "user03"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-02 08:00:00",
                 "readed": true
@@ -238,7 +238,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:03:00",
                 "readed": true
@@ -249,7 +249,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:04:00",
                 "readed": true
@@ -260,7 +260,7 @@
                 "user": {
                     "id": "3",
                     "name": "パープル",
-                    "image": "user03"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:20:00",
                 "readed": true
@@ -271,7 +271,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:30:00",
                 "readed": true
@@ -282,7 +282,7 @@
                 "user": {
                     "id": "3",
                     "name": "パープル",
-                    "image": "user03"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:33:00",
                 "readed": true
@@ -293,7 +293,7 @@
                 "user": {
                     "id": "1",
                     "name": "カーキ",
-                    "image": "user01"
+                    "image": "person.circle"
                 },
                 "date": "2023-02-01 08:40:00",
                 "readed": false

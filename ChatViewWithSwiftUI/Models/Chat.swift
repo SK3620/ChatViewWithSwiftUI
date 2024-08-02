@@ -9,5 +9,5 @@ import Foundation
 
 struct Chat: Decodable {
     let id: String
-    let massages: [Message]
+    let messages: [Message]
 }

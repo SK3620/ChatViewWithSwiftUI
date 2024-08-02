@@ -14,7 +14,7 @@ class ChatViewModel {
     
     init() {
         chatData = fetchData()
-        messages = chatData[0].massages
+        messages = chatData[0].messages
     }
     
     private func fetchData() -> [Chat] {
