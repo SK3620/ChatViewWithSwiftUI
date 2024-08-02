@@ -49,20 +49,26 @@ extension ChatView {
     
     // some → 型を抽象化するためのキーワード
     private var messageArea: some View {
-        return ScrollView {
-            VStack(spacing: 0) {
-                // \.id メモリへの参照を行う
-                // または、Messsageクラスに、Identifiableを準拠させることで、Messageのインスタンスが値がユニークになるメンバーを持っていることを保証する よって、id: Stringの定義が必須。→ \.idが不要になる
-                ForEach(vm.messages, id: \.id){ message in  
-                    MessageRow(message: message)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 0) {
+                    // \.id メモリへの参照を行う
+                    // または、Messsageクラスに、Identifiableを準拠させることで、Messageのインスタンスが値がユニークになるメンバーを持っていることを保証する よって、id: Stringの定義が必須。→ \.idが不要になる
+                    ForEach(vm.messages, id: \.id){ message in
+                        MessageRow(message: message)
+                    }
                 }
+                .padding(.horizontal)
+                .padding(.top, 72)
             }
-            .padding(.horizontal)
-            .padding(.top, 72)
-        }
-        .background(Color("Background"))
-        .onTapGesture {
-            textFieldFocused = false
+            .background(Color("Background"))
+            .onTapGesture {
+                textFieldFocused = false
+            }
+            .onAppear {
+                print("スクロールビューが表示されました")
+                scrollToLast(proxy: proxy)
+            }
         }
     }
     
@@ -123,5 +129,11 @@ extension ChatView {
         guard textFieldText != "" else { return }
         vm.addMessage(text: textFieldText)
         textFieldText = "" // 空文字入れて、Viewが再描画される
+    }
+    
+    private func scrollToLast(proxy: ScrollViewProxy) {
+        if let lastMessage = vm.messages.last {
+            proxy.scrollTo(lastMessage.id, anchor: .bottom) // ユニークになる必要がある
+        } // 配列の最後のメッセージ
     }
 }
