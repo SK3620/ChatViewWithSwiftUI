@@ -76,6 +76,10 @@ extension ChatView {
                 print("スクロールビューが表示されました")
                 scrollToLast(proxy: proxy)
             }
+            // of引数に指定した値を監視 変更されたら、クロージャ実行
+            .onChange(of: chat.messages) {
+                scrollToLast(proxy: proxy, smooth: true)
+            }
         }
     }
     
@@ -144,9 +148,15 @@ extension ChatView {
         textFieldText = "" // 空文字入れて、Viewが再描画される
     }
     
-    private func scrollToLast(proxy: ScrollViewProxy) {
+    private func scrollToLast(proxy: ScrollViewProxy, smooth: Bool = false) {
         if let lastMessage = chat.messages.last {
-            proxy.scrollTo(lastMessage.id, anchor: .bottom) // ユニークになる必要がある
-        } // 配列の最後のメッセージ
+            if smooth {
+                withAnimation(.smooth) {
+                    proxy.scrollTo(lastMessage.id, anchor: .bottom) // ユニークになる必要がある
+                }
+            } else {
+                proxy.scrollTo(lastMessage.id, anchor: .bottom) // ユニークになる必要がある
+            }
+        }
     }
 }

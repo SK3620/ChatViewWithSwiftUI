@@ -30,6 +30,7 @@ class ChatViewModel: ObservableObject {
         
         do {
             // 変換後のデータをChat型の要素を持つ配列を受け取りたい
+            // 各モデルにdecodableを準拠させる
            return try JSONDecoder().decode([Chat].self, from: data)
         } catch {
             fatalError("\(fileName)を\(Chat.self)に変換できませんでした")

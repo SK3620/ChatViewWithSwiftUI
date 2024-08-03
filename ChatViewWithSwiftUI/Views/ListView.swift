@@ -54,7 +54,7 @@ extension ListView {
                 ForEach(vm.chatData) { chat in
                     NavigationLink {
                         ChatView(chat: chat)
-                            .environmentObject(vm)
+                            .environmentObject(vm) // 別のクラス（ListView）ですでに初期化済みのインスタンスChatViewModelを遷移先画面でも使えるようにする（値の受け渡し）
                             .toolbar(.hidden)
                     } label: {
                         listRow(chat: chat)
@@ -70,6 +70,7 @@ extension ListView {
             let images = vm.getImages(messages: chat.messages)
             
             HStack(spacing: -28) {
+                // imagesの各要素自身を一意のidとして\.selfと書く
                 ForEach(images, id: \.self){ image in
                     Image(systemName: image)
                         .resizable()
